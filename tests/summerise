@@ -1,0 +1,59 @@
+різниця for...in i for...of: 
+
+ const obj = { name: 'Anna', age: 25 };
+for (const key in obj) {
+  console.log(key);         // 'name', 'age'
+  console.log(obj[key]);    // 'Anna', 25
+} 
+
+ const arr = ['apple', 'banana', 'cherry'];
+for (const fruit of arr) {
+  console.log(fruit); // 'apple', 'banana', 'cherry'
+} 
+
+  | Ознака                                 | `for...in`                           | `for...of`                 |
+| -------------------------------------- | ------------------------------------ | -------------------------- |
+| Що перебирає                           | **Ключі** (property names / індекси) | **Значення** елементів     |
+| Працює з об'єктами                     | ✅ Так                                | ❌ Ні (викине помилку)      |
+| Працює з масивами                      | ✅ Так (перебирає індекси)            | ✅ Так (перебирає значення) |
+| Тип значення на ітерації               | `string` (ключ)                      | Значення з колекції        |
+| Можна використовувати для `Map`, `Set` | ⚠️ Обмежено або зовсім не підходить  | ✅ Повністю підтримується   |
+
+
+Важливо!:
+const arr = ['a', 'b', 'c'];
+
+for (const index in arr) {
+  console.log(index);       // '0', '1', '2' ← індекси (як рядки)
+  console.log(arr[index]);  // 'a', 'b', 'c'
+}
+
+for (const value of arr) {
+  console.log(value);       // 'a', 'b', 'c' ← значення
+}
+
+
+HTML:
+tr - table rows
+td - table down -> table columns 
+
+
+
+iframe - web-page in a web-page, ще один HTML на веб сторінці
+
+ще можна запустити тест з URL З .env file через термінал: URL=npx playwright test autoWaiting.spec.ts --project=chromium
+
+in order to run test with any tag, you can follow:
+npx playwright test --project=chromium --grep @smoke
+or
+npx playwright test --project=chromium --grep "@smoke|@block" - in case you want run two or more tags 
+
+npx playwright test --update-snapshots - якщо тестуємо байку зі скріншотами, то цією командою можна оновити снепшоти
+
+docker build -t pw-pageobject-test . - налаштовуємо докер
+docker images - перевіряємо чи є картинка
+docker run -it pw-pageobject-test - запускаємо картинку
+npm run pageObjects-chrome - щоб тест запустився в контейнері
+
+створили Docker-comnpose file
+docker-compose up --build - створимо нову картинку
