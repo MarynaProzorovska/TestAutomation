@@ -32,7 +32,7 @@ await page.locator('nb-card', { hasText: "Inline form",}).screenshot({path: 'scr
   await pm.onDatePickerPage().selectDatepickerWithRangeFromToday(5, 1)
 });
 
-test.only("testing with argos CI", async ({ page }) => {  // you can add tags exatly to the test name 
+test.only("Testing with argos CI", async ({ page }) => {  // you can add tags exatly to the test name 
   const pm = new PageManager(page) // creating new instance of this page object inside of the test
   await pm.navigateTo().formLayoutsPage();
   await pm.navigateTo().datePickerPage();
